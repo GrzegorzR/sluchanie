@@ -26,16 +26,20 @@ This Python script dances through Google Sheets to:
 
 ### Installation: Preparing Your Mind
 
+```bash'
 pip install -r requirements.txt
+```
 
 ### Configuration: Tuning Your Instrument
 
 Create a `config.py` file with these reality-bending variables:
 
+```python"
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 SHEET_ID = 'your-google-sheet-id-a-unique-fingerprint-in-the-digital-universe'
 APPLICATION_CREDS = 'path/to/your/credentials.json'
 DEBUG = False  # Set to True to see the multiverse of possibilities
+```
 
 ### Google Sheet Format: The Canvas of Creation
 
@@ -49,7 +53,9 @@ Your sheet should be structured like this beautiful pattern:
 
 Run the script and watch the colors explode:
 
+```bash
 python src/main.py
+```
 
 ### The Revelation
 
