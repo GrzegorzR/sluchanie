@@ -23,6 +23,7 @@ This Python script dances through Google Sheets to:
   - google-auth (your security blanket)
   - pandas (not the animal, but equally fascinating)
   - numpy (because numbers should never be boring)
+  - python-dotenv (for environment variable magic)
 
 ### Installation: Preparing Your Mind
 
@@ -32,14 +33,25 @@ pip install -r requirements.txt
 
 ### Configuration: Tuning Your Instrument
 
-Create a `config.py` file with these reality-bending variables:
-
-```python"
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-SHEET_ID = 'your-google-sheet-id-a-unique-fingerprint-in-the-digital-universe'
-APPLICATION_CREDS = 'path/to/your/credentials.json'
-DEBUG = False  # Set to True to see the multiverse of possibilities
+1. Copy the example environment file:
+```bash
+cp env.example .env
 ```
+
+2. Edit `.env` file with your actual values:
+```bash
+# Google Sheets API Configuration
+GOOGLE_SHEET_ID=your_actual_google_sheet_id_here
+GOOGLE_APPLICATION_CREDENTIALS=cred/credentials.json
+DEBUG=False  # Set to True to see the multiverse of possibilities
+```
+
+3. Set up Google Sheets API credentials:
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select existing one
+   - Enable Google Sheets API
+   - Create Service Account credentials
+   - Download the JSON file and save it as `cred/credentials.json`
 
 ### Google Sheet Format: The Canvas of Creation
 

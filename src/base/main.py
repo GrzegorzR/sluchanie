@@ -1,3 +1,4 @@
+import time
 from collections import defaultdict
 import random
 
@@ -16,7 +17,7 @@ def get_rows(max_col="Z", test_sheet=False)->list[list[str]]:
     if test_sheet:
         range_str = f"test!A:{max_col}"
     else:
-        range_str = f"A:{max_col}"
+        range_str = f"sluchanie_2!A:{max_col}"
     result = (
         service.spreadsheets()
         .values()
@@ -27,6 +28,12 @@ def get_rows(max_col="Z", test_sheet=False)->list[list[str]]:
     rows = result.get("values", [])
     return rows
 
+def main():
+    time.sleep(3)
+    print("The chosen one is: Chml")
+    time.sleep(5)
+    print("The record is: FIRMA - Przeciwko kurestwu i upadkowi zasad" )
+    print("New weights are: 55	60	85	135	110	90	100	145	135	110	85	65	95	105	110	100	105	100	105	105	")
 
 def choose_record(meeting_df: pd.DataFrame) -> tuple[str, str]:
     present = meeting_df.loc[:, meeting_df.iloc[-1] == "TRUE"]
@@ -41,7 +48,6 @@ def choose_record(meeting_df: pd.DataFrame) -> tuple[str, str]:
     chosen_list = [s for s in present_and_has_list.loc[1:5, chosen_one].tolist() if s]
 
     chosen_record_ind = random.randint(0, len(chosen_list) - 1)
-    print(chosen_list, chosen_record_ind)
     chosen_record_name = chosen_list[chosen_record_ind]
 
     return chosen_one_name, chosen_record_name
@@ -71,12 +77,11 @@ def test_distribution(tries=1000):
         person, record_ind = choose_record(meeting_df)
 
         counter[person] += 1
-        print(person, record_ind)
     for person, count in counter.items():
         print(person, f"{100*count/tries}%")
 
 
-def main():
+def mainn():
     rows = get_rows()
     meeting_df = pd.DataFrame(rows[-8:])
     name_col_id_dict = {n: i for i, n in enumerate(rows[-8])}
@@ -95,7 +100,7 @@ if __name__ == '__main__':
         test_distribution()
         print("\n\n")
 
-    main()
+    mainn()
 
 
 
