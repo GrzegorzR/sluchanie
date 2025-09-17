@@ -24,11 +24,19 @@ This Python script dances through Google Sheets to:
   - pandas (not the animal, but equally fascinating)
   - numpy (because numbers should never be boring)
 
-### Installation: Preparing Your Mind
+### Installation: 
 
-```bash'
-pip install -r requirements.txt
+Dependencies for this project are defined using poetry. All of them defined in toml file.
+To install dependencies: 
+
+```bash 
+poetry install 
 ```
+To orchestrate main.py file:
+```bash 
+poetry run python src/main.py
+```
+
 
 ### Configuration: Tuning Your Instrument
 

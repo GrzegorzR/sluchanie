@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "sluchanie_app"
+version = "0.1.0"
+description = "App for sluchanie"
+authors = [
+  "Grzegorz Rucki <ruckigr@gmail.com>",
+  "Aleksandra Rabeda <rabeda.aleksandra@gmail.com>"
+]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+google-api-python-client = "*"
+google-auth = "*"
+pandas = "*"
+numpy = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
